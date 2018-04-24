@@ -1,0 +1,106 @@
+[25-Aug-2017 01:43:32 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[25-Aug-2017 22:58:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[26-Aug-2017 04:03:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[26-Aug-2017 04:04:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[27-Aug-2017 08:20:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[27-Aug-2017 08:26:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[10-Sep-2017 04:04:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[10-Sep-2017 04:07:12 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[11-Sep-2017 00:48:24 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[11-Sep-2017 00:58:34 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[11-Sep-2017 00:58:34 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[11-Sep-2017 00:59:05 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[11-Sep-2017 00:59:05 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[19-Sep-2017 04:43:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[19-Sep-2017 15:54:26 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[11-Oct-2017 00:50:04 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[11-Oct-2017 00:50:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[11-Oct-2017 00:50:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[11-Oct-2017 12:45:57 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[11-Oct-2017 13:36:26 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[12-Oct-2017 03:06:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[12-Oct-2017 03:06:28 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[12-Oct-2017 04:48:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[12-Oct-2017 15:55:25 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[15-Oct-2017 01:01:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[15-Oct-2017 01:11:20 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[15-Oct-2017 12:44:32 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[15-Oct-2017 02:16:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[15-Oct-2017 05:16:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[15-Oct-2017 07:32:22 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[15-Oct-2017 18:36:12 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[16-Oct-2017 23:31:53 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[17-Oct-2017 03:58:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[21-Oct-2017 06:32:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[21-Oct-2017 07:17:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/sbf/public_html/shadhin/login.php:6) in /home/sbf/public_html/shadhin/login.php on line 107
+[21-Oct-2017 18:19:08 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[21-Oct-2017 18:19:52 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[21-Oct-2017 18:55:09 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[21-Oct-2017 19:00:14 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[27-Oct-2017 09:21:10 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[27-Oct-2017 09:21:44 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[29-Oct-2017 13:39:10 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[31-Oct-2017 18:22:07 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[31-Oct-2017 18:29:46 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[01-Nov-2017 10:08:19 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[01-Nov-2017 10:15:00 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[01-Nov-2017 12:05:26 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[11-Nov-2017 02:13:01 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[11-Nov-2017 02:13:01 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[11-Nov-2017 02:13:28 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[11-Nov-2017 02:13:28 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[11-Nov-2017 02:14:22 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[11-Nov-2017 02:14:22 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[16-Nov-2017 13:09:37 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[20-Nov-2017 00:27:17 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[25-Nov-2017 20:08:26 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[03-Dec-2017 12:23:34 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[06-Dec-2017 10:58:40 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[11-Dec-2017 17:09:06 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[10-Jan-2018 12:10:26 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[10-Jan-2018 23:22:45 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 126
+[10-Jan-2018 23:22:46 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 126
+[10-Jan-2018 23:23:47 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 126
+[10-Jan-2018 23:23:50 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 126
+[10-Jan-2018 23:25:17 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[10-Jan-2018 23:25:39 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[10-Jan-2018 23:25:39 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[10-Jan-2018 23:25:43 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[10-Jan-2018 23:25:43 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[10-Jan-2018 23:25:43 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[10-Jan-2018 23:25:43 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/ptcpersonalinfo.php on line 125
+[11-Jan-2018 12:47:06 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[12-Jan-2018 20:30:01 Asia/Dhaka] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/sbf/public_html/shadhin/lib/Database.php on line 27
+[12-Jan-2018 20:54:59 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[23-Jan-2018 02:14:05 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[23-Jan-2018 03:49:03 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[23-Jan-2018 03:49:03 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[23-Jan-2018 18:20:02 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[23-Jan-2018 23:59:03 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[24-Jan-2018 01:12:49 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:12:49 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:12:54 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:12:54 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:13:24 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:13:24 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:13:29 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:13:29 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:13:33 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:13:33 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:13:34 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:13:34 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:23:16 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sbf/public_html/shadhin/getuser.php on line 33
+[24-Jan-2018 01:23:16 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/sbf/public_html/shadhin/getuser.php on line 35
+[24-Jan-2018 01:31:20 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/sbf/public_html/shadhin/getuser.php on line 74
+[24-Jan-2018 01:32:38 America/Chicago] PHP Parse error:  syntax error, unexpected '"<tr>"' (T_CONSTANT_ENCAPSED_STRING) in /home/sbf/public_html/shadhin/getuser.php on line 75
+[24-Jan-2018 01:32:46 America/Chicago] PHP Parse error:  syntax error, unexpected '"<tr>"' (T_CONSTANT_ENCAPSED_STRING) in /home/sbf/public_html/shadhin/getuser.php on line 75
+[24-Jan-2018 01:34:02 America/Chicago] PHP Parse error:  syntax error, unexpected '"<tr>' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/sbf/public_html/shadhin/getuser.php on line 63
+[24-Jan-2018 14:10:21 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[01-Feb-2018 12:57:31 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[01-Feb-2018 15:39:03 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[01-Feb-2018 17:41:21 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[07-Feb-2018 13:47:25 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[07-Feb-2018 14:29:57 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[14-Feb-2018 10:35:24 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[24-Mar-2018 18:08:42 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
+[03-Apr-2018 17:14:14 Asia/Dhaka] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/sbf/public_html/shadhin/lib/session.php on line 33
