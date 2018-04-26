@@ -141,32 +141,6 @@
 <div class="clearfix">
 <div class="pull-right tableTools-container"></div>
 </div>
-
-<div class="table-header dropdown-header">
-Show Accept Report
-</div>
-
-
-<div class="//dropdown-content">
-<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-	<thead>
-		<tr>
-			<th class="center">
-				<label class="pos-rel">
-					<input type="checkbox" class="ace" />
-					<span class="lbl"></span>
-				</label>
-			</th>
-			<th>Applicant Name</th>
-			<th>Account No</th>
-			<th>Joining Date</th>
-			<th>Mobile Number</th>
-			<th>NID Number</th>
-			<th>Address</th>
-		</tr>
-	</thead>
-
-	<tbody>
 <?php
 if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
 	// var_dump($_POST['option']);
@@ -189,6 +163,32 @@ if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
 	}
 	$query .= " ORDER BY `acc_number` ASC";
 	// var_dump($query);
+echo '<div class="table-header dropdown-header">
+Show Accept Report
+</div>
+
+
+<div class="//dropdown-content">
+<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+<thead>
+<tr>
+	<th class="center">
+		<label class="pos-rel">
+			<input type="checkbox" class="ace" />
+			<span class="lbl"></span>
+		</label>
+	</th>
+	<th>Applicant Name</th>
+	<th>Account No</th>
+	<th>Joining Date</th>
+	<th>Mobile Number</th>
+	<th>NID Number</th>
+	<th>Address</th>
+</tr>
+</thead>
+
+<tbody>';
+
 	$installment = $db->select($query);
 	if ($installment) {
 		$i=0;
@@ -213,8 +213,89 @@ if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
 		<?php 
 		} 
 		}
+	}
+	elseif (isset($_POST['submit']) && $_POST['option'] == 'option2') {
+// Product Info
+	$ac = $_POST['acc_number'];
+	// $fromDate = $_POST['fromdate'];
+	// $toDate = $_POST['todate'];
+
+	$query = "select ptc.`acc_number`, ptc.`prodcutName`, ptc.`productPrice`, ptc.`downPayment`, ptc.`inst_amount`, ptc.`fdr_amount`,
+sum(imt.fdr) as tt_fdr, sum(imt.installment) as tt_imt, sum(fdr.midback) as tt_midback, sum(fdr.fdr_return) as fdrmr  
+from tbl_ptcpersonalinfo ptc 
+left join tbl_installment imt 
+on ptc.`acc_number` = imt .`acc_number`
+left join tbl_fdrmidbackreturn fdr 
+on ptc.`acc_number` = fdr.`acc_number`"; 
+//group by ptc.acc_number
+//order by ptc.acc_number asc";
+	// if ($fromDate == '' AND $toDate == '' AND $ac == '') {
+	// 	$ac = (int) $result['acc_number'];
+	// }
+	// if ($fromDate == '' AND $toDate == '') {
+	// 	unset($fromDate);
+	// 	unset($toDate);
+	// 	$query .=" WHERE `acc_number` = $ac";
+	if ($ac !== '') {
+		$query .= "  where ptc.`acc_number` = $ac";
+	}
+	$query .= " group by ptc.acc_number ORDER BY `acc_number` ASC";
+	// var_dump($query);
+echo '<div class="table-header dropdown-header">
+Show Accept Report
+</div>
+
+
+<div class="//dropdown-content">
+<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+<thead>
+<tr>
+	<th class="center">
+		<label class="pos-rel">
+			<input type="checkbox" class="ace" />
+			<span class="lbl"></span>
+		</label>
+	</th>
+	<th>ACC Number</th>
+	<th>Product Info</th>
+	<th>Ins/Fdr</th>
+	<th>DUE FDR</th>
+	<th>Inst</th>
+	<th>FDR</th>
+</tr>
+</thead>
+
+<tbody>';
+
+	$productinfo = $db->select($query);
+	if ($productinfo) {
+		$i=0;
+		while ($result = $productinfo->fetch_assoc()) {
+			$i++;
+		?>
+		<tr>
+			<td class="center">
+				<label class="pos-rel">
+					<input type="checkbox" class="ace" />
+					<span class="lbl"></span>
+				</label>
+			</td>
+			<td><?php echo $result['acc_number']?></td>
+			<td>Name: <?php echo $result['prodcutName'];?><br>Price: <?php echo $result['productPrice'];?><br>Down: <?php echo $result['downPayment'];?></td>
+			<td>Ins Amt: <?php echo $result['inst_amount'];?><br>FDR Amt: <?php echo $result['fdr_amount'];?></td>
+			<td><?php echo ($result['fdr_amount'] - ($result['tt_midback'] + $result['fdrmr']));?></td>
+			<td><?php echo $result['tt_imt'];?></td>
+			<td><?php echo $result['tt_fdr'];?></td>
+		</tr>													
+		<?php 
+		} 
+		}
 	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option2') {
-		echo '<p style="text-align:center">No Data</p>';
+		//product info 
+
+
+
+
 	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option3') {
 		echo '<p style="text-align:center">No Data</p>';
 	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option4') {

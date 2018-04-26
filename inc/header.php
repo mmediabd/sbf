@@ -7,6 +7,7 @@
 <?php include 'config/config.php';?>
 <?php include 'lib/Database.php';?>
 <?php include 'helpers/format.php';?>
+<?php include 'helpers/functions.php';?>
 
 <?php
   $db = new Database();
