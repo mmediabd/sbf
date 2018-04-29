@@ -19,14 +19,14 @@
                 <div class="form-group">
                     <label class="col-xs-4 col-sm-5 control-label" for="form-field-date"> From Date :</label>
                     <div class="col-xs-8 col-sm-7">
-                        <input class="date-picker col-xs-10 col-sm-5" id="form-field-date" type="text" value="<?php echo isset($_POST['fromdate'])? $_POST['fromdate'] : ''; ?>" data-date-format="dd-mm-yyyy"  name="fromdate"/>
+                        <input class="date-picker col-xs-10 col-sm-5" id="form-field-date" type="text" value="<?php old('fromdate') ?>" data-date-format="yyyy-mm-dd"  name="fromdate"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-xs-4 col-sm-5 control-label" for="form-field-date"> To Date :</label>
                     <div class="col-xs-8 col-sm-7">
-                        <input class="date-picker col-xs-10 col-sm-5" id="form-field-date" type="text" value="<?php echo isset($_POST['todate'])? $_POST['todate'] : ''; ?>" data-date-format="dd-mm-yyyy"  name="todate" />
+                        <input class="date-picker col-xs-10 col-sm-5" id="form-field-date" type="text" value="<?php old('todate') ?>" data-date-format="yyyy-mm-dd"  name="todate" />
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
 
 					<div class="col-xs-7 col-sm-3 col-md-3 col-lg-3">
 						<select class="chosen-select col-xs-10 col-sm-9" id="form-field-1" name="acc_number" data-placeholder="Select Account Number...">
-							<option value="<?php //echo isset($_POST['acc_number'])? $_POST['acc_number'] : ''; ?>"><?php //echo isset($_POST['acc_number'])? $_POST['acc_number'] : ''; ?></option>
+							<option value="<?php old('acc_number') ?>"><?php old('acc_number') ?></option>
 
 					
 							<?php
@@ -53,63 +53,63 @@
 
                 <div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option1" <?php if(isset($_POST['option']) && $_POST['option'] == 'option1') echo "checked"; ?>/>
+				    <input type="radio" name="option" value="option1" checked/>
 				    New Customer
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option2" <?php if(isset($_POST['option']) && $_POST['option'] == 'option2') echo "checked"; ?>>
+				    <input type="radio" name="option" value="option2" <?php option('option', 'option2'); ?>>
 				    Product Information
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option3" <?php if(isset($_POST['option']) && $_POST['option'] == 'option3') echo "checked"; ?>>
+				    <input type="radio" name="option" value="option3" <?php option('option', 'option3'); ?>>
 				    FDR Information
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option4">
+				    <input type="radio" name="option" value="option4" <?php option('option', 'option4'); ?>>
 				    FDR &amp; Installment
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-8 col-xs-offset-4">
-				    <input type="radio" name="option" value="option5">
+				    <input type="radio" name="option" value="option5" <?php option('option', 'option5'); ?>>
 				    FDR Midback &amp; Return
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-8 col-xs-offset-4">
-				    <input type="radio" name="option" value="option6">
+				    <input type="radio" name="option" value="option6" <?php option('option', 'option6'); ?>>
 				    Bank/Personal Loan &amp; Return
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option7">
+				    <input type="radio" name="option" value="option7" <?php option('option', 'option7'); ?>>
 				    SBF To PTC
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option8">
+				    <input type="radio" name="option" value="option8" <?php option('option', 'option8'); ?>>
 				    PTC To SBF
 				  </label>
 				</div>
 
 				<div class="radio">
 				  <label class="col-lg-5 col-lg-offset-5 col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5 col-xs-6 col-xs-offset-4">
-				    <input type="radio" name="option" value="option9">
+				    <input type="radio" name="option" value="option9" <?php option('option', 'option9'); ?>>
 				    Daily Others Cost
 				  </label>
 				</div>
@@ -143,6 +143,7 @@
 </div>
 <?php
 if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
+	var_dump($_POST['todate']);
 	// var_dump($_POST['option']);
 	$ac = $_POST['acc_number'];
 	$fromDate = $_POST['fromdate'];
@@ -284,31 +285,169 @@ Show Accept Report
 			<td>Name: <?php echo $result['prodcutName'];?><br>Price: <?php echo $result['productPrice'];?><br>Down: <?php echo $result['downPayment'];?></td>
 			<td>Ins Amt: <?php echo $result['inst_amount'];?><br>FDR Amt: <?php echo $result['fdr_amount'];?></td>
 			<td><?php echo ($result['fdr_amount'] - ($result['tt_midback'] + $result['fdrmr']));?></td>
-			<td><?php echo $result['tt_imt'];?></td>
-			<td><?php echo $result['tt_fdr'];?></td>
+			<td><?php echo $result['tt_fdr'];?><br><?php echo $result['tt_imt'];?></td>
+			<td><?php echo ($result['tt_fdr'] + $result['fdrmr']);?></td>
 		</tr>													
 		<?php 
 		} 
 		}
-	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option2') {
+
+//For Option 3
+	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option3') {
 		//product info 
 
+	$ac = $_POST['acc_number'];
+	// $fromDate = $_POST['fromdate'];
+	// $toDate = $_POST['todate'];
+
+	$query = "select ptc.`acc_number`, ptc.`prodcutName`, ptc.`productPrice`, ptc.`downPayment`, ptc.`inst_amount`, ptc.`fdr_amount`,
+sum(imt.fdr) as tt_fdr, sum(imt.installment) as tt_imt, sum(fdr.midback) as tt_midback, sum(fdr.fdr_return) as fdrmr  
+from tbl_ptcpersonalinfo ptc 
+left join tbl_installment imt 
+on ptc.`acc_number` = imt .`acc_number`
+left join tbl_fdrmidbackreturn fdr 
+on ptc.`acc_number` = fdr.`acc_number`"; 
+//group by ptc.acc_number
+//order by ptc.acc_number asc";
+	// if ($fromDate == '' AND $toDate == '' AND $ac == '') {
+	// 	$ac = (int) $result['acc_number'];
+	// }
+	// if ($fromDate == '' AND $toDate == '') {
+	// 	unset($fromDate);
+	// 	unset($toDate);
+	// 	$query .=" WHERE `acc_number` = $ac";
+	if ($ac !== '') {
+		$query .= "  where ptc.`acc_number` = $ac";
+	}
+	$query .= " group by ptc.acc_number ORDER BY `acc_number` ASC";
+	// var_dump($query);
+echo '<div class="table-header dropdown-header">
+Show Accept Report
+</div>
+
+
+<div class="//dropdown-content">
+<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+<thead>
+<tr>
+	<th class="center">
+		<label class="pos-rel">
+			<input type="checkbox" class="ace" />
+			<span class="lbl"></span>
+		</label>
+	</th>
+	<th>ACC Number</th>
+	<th>Product Info</th>
+	<th>Ins/Fdr</th>
+	<th>DUE FDR</th>
+	<th>Inst</th>
+	<th>FDR</th>
+</tr>
+</thead>
+
+<tbody>';
+
+	$productinfo = $db->select($query);
+	if ($productinfo) {
+		$i=0;
+		while ($result = $productinfo->fetch_assoc()) {
+			$i++;
+		?>
+		<tr>
+			<td class="center">
+				<label class="pos-rel">
+					<input type="checkbox" class="ace" />
+					<span class="lbl"></span>
+				</label>
+			</td>
+			<td><?php echo $result['acc_number']?></td>
+			<td>Name: <?php echo $result['prodcutName'];?><br>Price: <?php echo $result['productPrice'];?><br>Down: <?php echo $result['downPayment'];?></td>
+			<td>Ins Amt: <?php echo $result['inst_amount'];?><br>FDR Amt: <?php echo $result['fdr_amount'];?></td>
+			<td><?php echo ($result['fdr_amount'] - ($result['tt_midback'] + $result['fdrmr']));?></td>
+			<td><?php echo $result['tt_fdr'];?><br><?php echo $result['tt_imt'];?></td>
+			<td><?php echo ($result['tt_fdr'] + $result['fdrmr']);?></td>
+		</tr>													
+		<?php 
+		} 
+		}
 
 
 
-	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option3') {
-		echo '<p style="text-align:center">No Data</p>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option4') {
 		echo '<p style="text-align:center">No Data</p>';
 	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option5') {
-echo '<p style="text-align:center">No Data</p>';
+		echo '<p style="text-align:center">No Data</p>';
 	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option6') {
 echo '<p style="text-align:center">No Data</p>';
 	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option7') {
 echo '<p style="text-align:center">No Data</p>';
-	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option8') {
+	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option8') {
 echo '<p style="text-align:center">No Data</p>';
 	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option9') {
+echo '<p style="text-align:center">No Data</p>';
+	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option10') {
 echo '<p style="text-align:center">No Data</p>';
 	} ?>
 	</tbody>
