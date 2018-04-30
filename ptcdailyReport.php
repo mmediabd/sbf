@@ -132,18 +132,9 @@
 <!--Form End-->
 
 
-
-<div class="row">
-<div class="col-xs-12">
-
-<div class="row">
-<div class="col-xs-12">
-<div class="clearfix">
-<div class="pull-right tableTools-container"></div>
-</div>
 <?php
 if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
-	var_dump($_POST['todate']);
+	//var_dump($_POST['todate']);
 	// var_dump($_POST['option']);
 	$ac = $_POST['acc_number'];
 	$fromDate = $_POST['fromdate'];
@@ -164,7 +155,17 @@ if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
 	}
 	$query .= " ORDER BY `acc_number` ASC";
 	// var_dump($query);
-echo '<div class="table-header dropdown-header">
+echo '
+<div class="row">
+<div class="col-xs-12">
+
+<div class="row">
+<div class="col-xs-12">
+<div class="clearfix">
+<div class="pull-right tableTools-container"></div>
+</div>
+
+<div class="table-header dropdown-header">
 Show Accept Report
 </div>
 
@@ -212,7 +213,7 @@ Show Accept Report
 			
 		</tr>													
 		<?php 
-		} 
+		} ?></tbody><?php
 		}
 	}
 	elseif (isset($_POST['submit']) && $_POST['option'] == 'option2') {
@@ -242,12 +243,22 @@ on ptc.`acc_number` = fdr.`acc_number`";
 	}
 	$query .= " group by ptc.acc_number ORDER BY `acc_number` ASC";
 	// var_dump($query);
-echo '<div class="table-header dropdown-header">
-Show Accept Report
-</div>
-
-
-<div class="//dropdown-content">
+	echo '
+	<div class="row">
+	<div class="col-xs-12">
+	
+	<div class="row">
+	<div class="col-xs-12">
+	<div class="clearfix">
+	<div class="pull-right tableTools-container"></div>
+	</div>
+	
+	<div class="table-header dropdown-header">
+	Show Accept Report
+	</div>
+	
+	
+	<div class="//dropdown-content">
 <table id="dynamic-table" class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
@@ -289,7 +300,7 @@ Show Accept Report
 			<td><?php echo ($result['tt_fdr'] + $result['fdrmr']);?></td>
 		</tr>													
 		<?php 
-		} 
+		} ?></tbody> <?php
 		}
 
 //For Option 3
@@ -297,60 +308,54 @@ Show Accept Report
 		//product info 
 
 	$ac = $_POST['acc_number'];
-	// $fromDate = $_POST['fromdate'];
-	// $toDate = $_POST['todate'];
+	$fromDate = $_POST['fromdate'];
+	$toDate = $_POST['todate'];
 
-	$query = "select ptc.`acc_number`, ptc.`prodcutName`, ptc.`productPrice`, ptc.`downPayment`, ptc.`inst_amount`, ptc.`fdr_amount`,
-sum(imt.fdr) as tt_fdr, sum(imt.installment) as tt_imt, sum(fdr.midback) as tt_midback, sum(fdr.fdr_return) as fdrmr  
-from tbl_ptcpersonalinfo ptc 
-left join tbl_installment imt 
-on ptc.`acc_number` = imt .`acc_number`
-left join tbl_fdrmidbackreturn fdr 
-on ptc.`acc_number` = fdr.`acc_number`"; 
-//group by ptc.acc_number
-//order by ptc.acc_number asc";
-	// if ($fromDate == '' AND $toDate == '' AND $ac == '') {
-	// 	$ac = (int) $result['acc_number'];
-	// }
-	// if ($fromDate == '' AND $toDate == '') {
-	// 	unset($fromDate);
-	// 	unset($toDate);
-	// 	$query .=" WHERE `acc_number` = $ac";
-	if ($ac !== '') {
-		$query .= "  where ptc.`acc_number` = $ac";
-	}
-	$query .= " group by ptc.acc_number ORDER BY `acc_number` ASC";
-	// var_dump($query);
-echo '<div class="table-header dropdown-header">
-Show Accept Report
-</div>
+	if (($fromDate && $toDate) !=='' && $ac == '') {
+		echo '<div class="row">
+		<div class="col-xs-12">
+		
+		<div class="row">
+		<div class="col-xs-12">
+		<div class="clearfix">
+		<div class="pull-right tableTools-container"></div>
+		</div>
+		
+		<div class="table-header dropdown-header">
+		Show Accept Report
+		</div>
+		
+		
+		<div class="//dropdown-content">
+		<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+		<thead>
+		<tr>
+			<th class="center">
+				<label class="pos-rel">
+					<input type="checkbox" class="ace" />
+					<span class="lbl"></span>
+				</label>
+			</th>
+			<th>ACC Number</th>
+			<th>Name</th>
+			<th>Install Amount</th>
+			<th>Total FDR</th>
+			<th>Total Midback</th>
+			<th>Total Return</th>
+		</tr>
+		</thead>
+	
+		<tbody>';
 
-
-<div class="//dropdown-content">
-<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-<thead>
-<tr>
-	<th class="center">
-		<label class="pos-rel">
-			<input type="checkbox" class="ace" />
-			<span class="lbl"></span>
-		</label>
-	</th>
-	<th>ACC Number</th>
-	<th>Product Info</th>
-	<th>Ins/Fdr</th>
-	<th>DUE FDR</th>
-	<th>Inst</th>
-	<th>FDR</th>
-</tr>
-</thead>
-
-<tbody>';
-
-	$productinfo = $db->select($query);
-	if ($productinfo) {
+		$query = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount, sum(imt.fdr) as ttl_fdr, sum(fdr.midback) as ttl_midback, sum(fdr.fdr_return) as ttl_return
+from tbl_ptcpersonalinfo ptc left join tbl_installment imt
+on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
+on fdr.acc_number = ptc.acc_number where imt.entry_date BETWEEN '" .$fromDate . "' AND '" . $toDate . "' 
+group by ptc.acc_number";
+	$fdrInfo = $db->select($query);
+	if ($fdrInfo) {
 		$i=0;
-		while ($result = $productinfo->fetch_assoc()) {
+		while ($result = $fdrInfo->fetch_assoc()) {
 			$i++;
 		?>
 		<tr>
@@ -360,16 +365,107 @@ Show Accept Report
 					<span class="lbl"></span>
 				</label>
 			</td>
-			<td><?php echo $result['acc_number']?></td>
-			<td>Name: <?php echo $result['prodcutName'];?><br>Price: <?php echo $result['productPrice'];?><br>Down: <?php echo $result['downPayment'];?></td>
-			<td>Ins Amt: <?php echo $result['inst_amount'];?><br>FDR Amt: <?php echo $result['fdr_amount'];?></td>
-			<td><?php echo ($result['fdr_amount'] - ($result['tt_midback'] + $result['fdrmr']));?></td>
-			<td><?php echo $result['tt_fdr'];?><br><?php echo $result['tt_imt'];?></td>
-			<td><?php echo ($result['tt_fdr'] + $result['fdrmr']);?></td>
+			<td><?php echo $result['ac']?></td>
+			<td><?php echo $result['name'];?></td>
+			<td><?php echo $result['amount'];?></td>
+			<td><?php echo $result['ttl_fdr'];?></td>
+			<td><?php echo $result['ttl_midback'];?></td>
+			<td><?php echo $result['ttl_return'];?></td>
 		</tr>													
-		<?php 
-		} 
-		}
+		<?php }  ?></tbody><?php 
+	}
+		
+	}
+
+
+	if(($ac !== "") && ($fromDate || $toDate) !== '') {
+
+		echo '<div class="row">
+		<div class="col-xs-12">
+		
+		<div class="row">
+		<div class="col-xs-12">
+		<div class="clearfix">
+		<div class="pull-right tableTools-container"></div>
+		</div>
+		
+		<div class="table-header dropdown-header">
+		Show Accept Report
+		</div>
+		
+		
+		<div class="//dropdown-content">
+		<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+		<thead>
+		<tr>
+			<th class="center">
+				<label class="pos-rel">
+					<input type="checkbox" class="ace" />
+					<span class="lbl"></span>
+				</label>
+			</th>
+			<th>Personal Info</th>
+			<th>FDR</th>
+			<th>FDR Pay Date</th>
+			<th>Midback</th>
+			<th>Return</th>
+			<th>FDR Date</th>
+		</tr>
+		</thead>
+	
+		<tbody>';
+
+		$query = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount,
+	 imt.fdr as fdr, imt.entry_date as imt_date,
+fdr.midback as midback, fdr.fdr_return as fdr_return, fdr.inputdate as fdr_date
+from tbl_ptcpersonalinfo ptc left join tbl_installment imt
+on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
+on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
+	$fdrInfoAC = $db->select($query);
+	if ($fdrInfoAC) {
+		$i=0;
+		while ($result = $fdrInfoAC->fetch_assoc()) {
+			$i++;
+		?>
+		<tr>
+			<td class="center">
+				<label class="pos-rel">
+					<input type="checkbox" class="ace" />
+					<span class="lbl"></span>
+				</label>
+			</td>
+			<td><strong>Name:</strong> <?php echo $result['name']?><br><strong>AC:</strong> <?php echo $result['ac']?><br><strong>FDR:</strong> <?php echo $result['amount'];?></td>
+			<td><?php echo $result['fdr'];?></td>
+			<td><?php echo $result['imt_date'];?></td>
+			<td><?php echo $result['midback'];?></td>
+			<td><?php echo $result['fdr_return'];?></td>
+			<td><?php echo $result['fdr_date'];?></td>
+		</tr>													
+	<?php } ?></tbody> <tfoot> <?php
+
+			$query2 = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount, sum(imt.fdr) as ttl_fdr, sum(fdr.midback) as ttl_midback, sum(fdr.fdr_return) as ttl_return
+			from tbl_ptcpersonalinfo ptc left join tbl_installment imt
+			on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
+			on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
+	
+				$fdrInfoT = $db->select($query2);
+				$result = $fdrInfoT->fetch_assoc();
+				?>
+				<tr>
+					<td class="center">
+						<label class="pos-rel">
+							<input type="checkbox" class="ace" />
+							<span class="lbl"></span>
+						</label>
+					</td>
+					<td><strong>Total</strong></td>
+					<td><strong><?php echo $result['ttl_fdr'];?></strong></td>
+					<td colspan="2"><strong><?php echo ($result['ttl_midback'] == '') ? '0' : $result['ttl_midback'] ;?></strong></td>
+					<td colspan="2"><strong><?php echo ($result['ttl_return'] == '') ? '0' : $result['ttl_return'] ;?></strong></td>
+				</tr></tfoot>
+<?php
+	}
+}
 
 
 
@@ -450,7 +546,6 @@ echo '<p style="text-align:center">No Data</p>';
 	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option10') {
 echo '<p style="text-align:center">No Data</p>';
 	} ?>
-	</tbody>
 </table>
 </div>
 </div>
