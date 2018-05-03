@@ -36,4 +36,14 @@ if (! function_exists('option')) {
 	}
 }
 
+if (! function_exists('account')) {
+    function account($value) {
+        if ($value == '') {
+            return '0';
+        } else {
+            return $value;
+        }
+    }
+}
+
 

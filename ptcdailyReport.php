@@ -39,13 +39,15 @@
 
 					
 							<?php
-	                            $query = "select * from tbl_ptcpersonalinfo";
-	                            $Category = $db->select($query);
-	                            if ($Category) {
-	                                while ($result = $Category->fetch_assoc()) { 
-	                            ?>
-	                            <option value="<?php echo $result['acc_number'];?>"><?php echo $result['acc_number'];?></option>
-                        	<?php } } ?>
+						$query = "select * from tbl_ptcpersonalinfo";
+						$Category = $db->select($query);
+						if ($Category) {
+							while ($result = $Category->fetch_assoc()) {
+								?>
+	                            <option value="<?php echo $result['acc_number']; ?>"><?php echo $result['acc_number']; ?></option>
+                        	<?php 
+							}
+						} ?>
 						</select>
 					</div>
 				</div>
@@ -141,21 +143,21 @@ if (isset($_POST['submit']) && $_POST['option'] == 'option1') {
 	$toDate = $_POST['todate'];
 
 	$query = "SELECT * from tbl_ptcpersonalinfo";
-	if ($fromDate == '' AND $toDate == '' AND $ac == '') {
-		$ac = (int) $result['acc_number'];
+	if ($fromDate == '' and $toDate == '' and $ac == '') {
+		$ac = (int)$result['acc_number'];
 	}
-	if ($fromDate == '' AND $toDate == '') {
+	if ($fromDate == '' and $toDate == '') {
 		unset($fromDate);
 		unset($toDate);
-		$query .=" WHERE `acc_number` = $ac";
+		$query .= " WHERE `acc_number` = $ac";
 	} elseif ($ac == '') {
-		$query .= " WHERE `joining_date` BETWEEN '" .$fromDate . "' AND '". $toDate . "'";
+		$query .= " WHERE `joining_date` BETWEEN '" . $fromDate . "' AND '" . $toDate . "'";
 	} else {
-	$query .= " WHERE `acc_number` = $ac AND `joining_date` BETWEEN '" .$fromDate . "' AND '". $toDate . "'";;
+		$query .= " WHERE `acc_number` = $ac AND `joining_date` BETWEEN '" . $fromDate . "' AND '" . $toDate . "'";;
 	}
 	$query .= " ORDER BY `acc_number` ASC";
 	// var_dump($query);
-echo '
+	echo '
 <div class="row">
 <div class="col-xs-12">
 
@@ -193,10 +195,10 @@ Show Accept Report
 
 	$installment = $db->select($query);
 	if ($installment) {
-		$i=0;
+		$i = 0;
 		while ($result = $installment->fetch_assoc()) {
 			$i++;
-		?>
+			?>
 		<tr>
 			<td class="center">
 				<label class="pos-rel">
@@ -204,30 +206,35 @@ Show Accept Report
 					<span class="lbl"></span>
 				</label>
 			</td>
-			<td><?php echo $result['applicant_name'] . '<br> ' . $result['acc_number']?></td>
-			<td><?php echo $result['acc_number'];?></td> 
-			<td><?php echo $result['joining_date'];?></td>
-			<td><?php echo "0".$result['mobile_number'];?></td>
-			<td><?php echo $result['NIDNumber'];?></td>
-			<td><?php echo $result['address'];?></td>
+			<td><?php echo $result['applicant_name'] . '<br> ' . $result['acc_number'] ?></td>
+			<td><?php echo $result['acc_number']; ?></td> 
+			<td><?php echo $result['joining_date']; ?></td>
+			<td><?php echo "0" . $result['mobile_number']; ?></td>
+			<td><?php echo $result['NIDNumber']; ?></td>
+			<td><?php echo $result['address']; ?></td>
 			
 		</tr>													
 		<?php 
-		} ?></tbody><?php
-		}
-	}
-	elseif (isset($_POST['submit']) && $_POST['option'] == 'option2') {
+} ?></tbody><?php
+
+}
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option2') {
 // Product Info
 	$ac = $_POST['acc_number'];
 	// $fromDate = $_POST['fromdate'];
 	// $toDate = $_POST['todate'];
 
-	$query = "select ptc.`acc_number`, ptc.`prodcutName`, ptc.`productPrice`, ptc.`downPayment`, ptc.`inst_amount`, ptc.`fdr_amount`,
-sum(imt.fdr) as tt_fdr, sum(imt.installment) as tt_imt, sum(fdr.midback) as tt_midback, sum(fdr.fdr_return) as fdrmr  
+	$query = "select ptc.applicant_name as name, ptc.`acc_number`, ptc.`prodcutName`, ptc.`productPrice`, ptc.`downPayment`, ptc.`inst_amount`, ptc.`fdr_amount`, imt.acc_number, fdr.acc_number,
+sum(InsFDR) as tt_fdr, sum(ImtInstallment) as tt_imt, sum(MidBack) as tt_midback, sum(FdrReturn) as fdrmr  
 from tbl_ptcpersonalinfo ptc 
-left join tbl_installment imt 
+left join
+(select imt.acc_number, sum(imt.fdr) as InsFDR, sum(imt.installment) as ImtInstallment from 
+ tbl_installment imt group by imt.acc_number) imt 
 on ptc.`acc_number` = imt .`acc_number`
-left join tbl_fdrmidbackreturn fdr 
+
+left join 
+(select fdr.acc_number, sum(fdr.midback) as MidBack, sum(fdr.fdr_return) as FdrReturn from 
+tbl_fdrmidbackreturn fdr group by fdr.acc_number) fdr
 on ptc.`acc_number` = fdr.`acc_number`"; 
 //group by ptc.acc_number
 //order by ptc.acc_number asc";
@@ -238,10 +245,10 @@ on ptc.`acc_number` = fdr.`acc_number`";
 	// 	unset($fromDate);
 	// 	unset($toDate);
 	// 	$query .=" WHERE `acc_number` = $ac";
-	if ($ac !== '') {
-		$query .= "  where ptc.`acc_number` = $ac";
-	}
-	$query .= " group by ptc.acc_number ORDER BY `acc_number` ASC";
+if ($ac !== '') {
+	$query .= "  where ptc.`acc_number` = $ac";
+												}
+	$query .= " group by ptc.acc_number ORDER BY ptc.`acc_number` ASC";
 	// var_dump($query);
 	echo '
 	<div class="row">
@@ -268,23 +275,23 @@ on ptc.`acc_number` = fdr.`acc_number`";
 			<span class="lbl"></span>
 		</label>
 	</th>
-	<th>ACC Number</th>
+	<th>Customer Info</th>
 	<th>Product Info</th>
 	<th>Ins/Fdr</th>
-	<th>DUE FDR</th>
-	<th>Inst</th>
+	<th>Total(Inst/FDR)</th>
+	<th>DUE (Inst and FDR)</th>
 	<th>FDR</th>
 </tr>
 </thead>
 
 <tbody>';
 
-	$productinfo = $db->select($query);
-	if ($productinfo) {
-		$i=0;
-		while ($result = $productinfo->fetch_assoc()) {
-			$i++;
-		?>
+		$productinfo = $db->select($query);
+		if ($productinfo) {
+			$i = 0;
+			while ($result = $productinfo->fetch_assoc()) {
+				$i++;
+				?>
 		<tr>
 			<td class="center">
 				<label class="pos-rel">
@@ -292,26 +299,28 @@ on ptc.`acc_number` = fdr.`acc_number`";
 					<span class="lbl"></span>
 				</label>
 			</td>
-			<td><?php echo $result['acc_number']?></td>
-			<td>Name: <?php echo $result['prodcutName'];?><br>Price: <?php echo $result['productPrice'];?><br>Down: <?php echo $result['downPayment'];?></td>
-			<td>Ins Amt: <?php echo $result['inst_amount'];?><br>FDR Amt: <?php echo $result['fdr_amount'];?></td>
-			<td><?php echo ($result['fdr_amount'] - ($result['tt_midback'] + $result['fdrmr']));?></td>
-			<td><?php echo $result['tt_fdr'];?><br><?php echo $result['tt_imt'];?></td>
-			<td><?php echo ($result['tt_fdr'] + $result['fdrmr']);?></td>
+			<td>Name: <?php echo $result['name'] ?><br>Ac NO: <?php echo $result['acc_number'] ?></td>
+			<td>Pro. Name: <?php echo $result['prodcutName']; ?><br>Price: <?php echo $result['productPrice']; ?><br>Down: <?php echo $result['downPayment']; ?></td>
+			<td>Ins Amt: <?php echo $result['inst_amount']; ?><br>FDR Amt: <?php echo $result['fdr_amount']; ?></td>
+			<td>Total Ins: <?php echo $result['tt_imt']; ?><br>Total FDR:<?php echo $result['tt_fdr']; ?></td>
+			<td>Fdrmidback: <?php echo account($result['tt_midback']);?><br>Return: <?php echo account($result['fdrmr']); ?></td>
+			<td>Due Ins: <?php echo ($result['productPrice'] - $result['downPayment']) - $result['tt_imt']; ?><br>
+			Due FDR: <?php echo ($result['tt_fdr'] - ($result['tt_midback'] + $result['fdrmr'])); ?></td>
 		</tr>													
 		<?php 
-		} ?></tbody> <?php
-		}
+} ?></tbody> <?php
+
+	}
 
 //For Option 3
-	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option3') {
-		//product info 
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option3') {
+//product info 
 
 	$ac = $_POST['acc_number'];
 	$fromDate = $_POST['fromdate'];
 	$toDate = $_POST['todate'];
 
-	if (($fromDate && $toDate) !=='' && $ac == '') {
+	if (($fromDate && $toDate) !== '' && $ac == '') {
 		echo '<div class="row">
 		<div class="col-xs-12">
 		
@@ -347,17 +356,17 @@ on ptc.`acc_number` = fdr.`acc_number`";
 	
 		<tbody>';
 
-		$query = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount, sum(imt.fdr) as ttl_fdr, sum(fdr.midback) as ttl_midback, sum(fdr.fdr_return) as ttl_return
-from tbl_ptcpersonalinfo ptc left join tbl_installment imt
-on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
-on fdr.acc_number = ptc.acc_number where imt.entry_date BETWEEN '" .$fromDate . "' AND '" . $toDate . "' 
-group by ptc.acc_number";
+	$query = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount, sum(imt.fdr) as ttl_fdr, sum(fdr.midback) as ttl_midback, sum(fdr.fdr_return) as ttl_return
+	from tbl_ptcpersonalinfo ptc left join tbl_installment imt
+	on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
+	on fdr.acc_number = ptc.acc_number where imt.entry_date BETWEEN '" . $fromDate . "' AND '" . $toDate . "' 
+	group by ptc.acc_number";
 	$fdrInfo = $db->select($query);
 	if ($fdrInfo) {
-		$i=0;
+		$i = 0;
 		while ($result = $fdrInfo->fetch_assoc()) {
 			$i++;
-		?>
+			?>
 		<tr>
 			<td class="center">
 				<label class="pos-rel">
@@ -365,22 +374,23 @@ group by ptc.acc_number";
 					<span class="lbl"></span>
 				</label>
 			</td>
-			<td><?php echo $result['ac']?></td>
-			<td><?php echo $result['name'];?></td>
-			<td><?php echo $result['amount'];?></td>
-			<td><?php echo $result['ttl_fdr'];?></td>
-			<td><?php echo $result['ttl_midback'];?></td>
-			<td><?php echo $result['ttl_return'];?></td>
+			<td><?php echo $result['ac'] ?></td>
+			<td><?php echo $result['name']; ?></td>
+			<td><?php echo $result['amount']; ?></td>
+			<td><?php echo $result['ttl_fdr']; ?></td>
+			<td><?php echo $result['ttl_midback']; ?></td>
+			<td><?php echo $result['ttl_return']; ?></td>
 		</tr>													
-		<?php }  ?></tbody><?php 
+		<?php 
+} ?></tbody><?php 
 	}
-		
+
 	}
 
 
-	if(($ac !== "") && ($fromDate || $toDate) !== '') {
+	if (($ac !== "") && ($fromDate || $toDate) !== '') {
 
-		echo '<div class="row">
+	echo '<div class="row">
 		<div class="col-xs-12">
 		
 		<div class="row">
@@ -415,18 +425,18 @@ group by ptc.acc_number";
 	
 		<tbody>';
 
-		$query = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount,
-	 imt.fdr as fdr, imt.entry_date as imt_date,
-fdr.midback as midback, fdr.fdr_return as fdr_return, fdr.inputdate as fdr_date
-from tbl_ptcpersonalinfo ptc left join tbl_installment imt
-on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
-on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
+	$query = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount,
+	imt.fdr as fdr, imt.entry_date as imt_date,
+	fdr.midback as midback, fdr.fdr_return as fdr_return, fdr.inputdate as fdr_date
+	from tbl_ptcpersonalinfo ptc left join tbl_installment imt
+	on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
+	on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
 	$fdrInfoAC = $db->select($query);
 	if ($fdrInfoAC) {
-		$i=0;
+		$i = 0;
 		while ($result = $fdrInfoAC->fetch_assoc()) {
 			$i++;
-		?>
+			?>
 		<tr>
 			<td class="center">
 				<label class="pos-rel">
@@ -434,24 +444,25 @@ on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
 					<span class="lbl"></span>
 				</label>
 			</td>
-			<td><strong>Name:</strong> <?php echo $result['name']?><br><strong>AC:</strong> <?php echo $result['ac']?><br><strong>FDR:</strong> <?php echo $result['amount'];?></td>
-			<td><?php echo $result['fdr'];?></td>
-			<td><?php echo $result['imt_date'];?></td>
-			<td><?php echo $result['midback'];?></td>
-			<td><?php echo $result['fdr_return'];?></td>
-			<td><?php echo $result['fdr_date'];?></td>
+			<td><strong>Name:</strong> <?php echo $result['name'] ?><br><strong>AC:</strong> <?php echo $result['ac'] ?><br><strong>FDR:</strong> <?php echo $result['amount']; ?></td>
+			<td><?php echo $result['fdr']; ?></td>
+			<td><?php echo $result['imt_date']; ?></td>
+			<td><?php echo $result['midback']; ?></td>
+			<td><?php echo $result['fdr_return']; ?></td>
+			<td><?php echo $result['fdr_date']; ?></td>
 		</tr>													
-	<?php } ?></tbody> <tfoot> <?php
+	<?php 
+} ?></tbody> <tfoot> <?php
 
-			$query2 = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount, sum(imt.fdr) as ttl_fdr, sum(fdr.midback) as ttl_midback, sum(fdr.fdr_return) as ttl_return
-			from tbl_ptcpersonalinfo ptc left join tbl_installment imt
-			on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
-			on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
-	
-				$fdrInfoT = $db->select($query2);
-				$result = $fdrInfoT->fetch_assoc();
-				?>
-				<tr>
+	$query2 = "select ptc.applicant_name as name, ptc.acc_number as ac, ptc.fdr_amount as amount, sum(imt.fdr) as ttl_fdr, sum(fdr.midback) as ttl_midback, sum(fdr.fdr_return) as ttl_return
+	from tbl_ptcpersonalinfo ptc left join tbl_installment imt
+	on ptc.acc_number = imt.acc_number left join tbl_fdrmidbackreturn fdr
+	on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
+
+	$fdrInfoT = $db->select($query2);
+	$result = $fdrInfoT->fetch_assoc();
+	?>
+	<tr>
 					<td class="center">
 						<label class="pos-rel">
 							<input type="checkbox" class="ace" />
@@ -459,12 +470,13 @@ on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
 						</label>
 					</td>
 					<td><strong>Total</strong></td>
-					<td><strong><?php echo $result['ttl_fdr'];?></strong></td>
-					<td colspan="2"><strong><?php echo ($result['ttl_midback'] == '') ? '0' : $result['ttl_midback'] ;?></strong></td>
-					<td colspan="2"><strong><?php echo ($result['ttl_return'] == '') ? '0' : $result['ttl_return'] ;?></strong></td>
+					<td><strong><?php echo $result['ttl_fdr']; ?></strong></td>
+					<td colspan="2"><strong><?php echo ($result['ttl_midback'] == '') ? '0' : $result['ttl_midback']; ?></strong></td>
+					<td colspan="2"><strong><?php echo ($result['ttl_return'] == '') ? '0' : $result['ttl_return']; ?></strong></td>
 				</tr></tfoot>
 <?php
-	}
+
+}
 }
 
 
@@ -531,21 +543,21 @@ on fdr.acc_number = ptc.acc_number where ptc.acc_number = $ac";
 
 
 
-	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option4') {
-		echo '<p style="text-align:center">No Data</p>';
-	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option5') {
-		echo '<p style="text-align:center">No Data</p>';
-	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option6') {
-echo '<p style="text-align:center">No Data</p>';
-	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option7') {
-echo '<p style="text-align:center">No Data</p>';
-	}elseif (isset($_POST['submit']) && $_POST['option'] == 'option8') {
-echo '<p style="text-align:center">No Data</p>';
-	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option9') {
-echo '<p style="text-align:center">No Data</p>';
-	} elseif (isset($_POST['submit']) && $_POST['option'] == 'option10') {
-echo '<p style="text-align:center">No Data</p>';
-	} ?>
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option4') {
+	echo '<p style="text-align:center">No Data</p>';
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option5') {
+	echo '<p style="text-align:center">No Data</p>';
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option6') {
+	echo '<p style="text-align:center">No Data</p>';
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option7') {
+	echo '<p style="text-align:center">No Data</p>';
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option8') {
+	echo '<p style="text-align:center">No Data</p>';
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option9') {
+	echo '<p style="text-align:center">No Data</p>';
+} elseif (isset($_POST['submit']) && $_POST['option'] == 'option10') {
+	echo '<p style="text-align:center">No Data</p>';
+} ?>
 </table>
 </div>
 </div>
